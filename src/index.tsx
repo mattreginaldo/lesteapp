@@ -5,26 +5,29 @@
  * @format
  */
 
-import React from 'react';
-import {Provider as PaperProvider} from 'react-native-paper';
-import {StatusBar} from 'react-native';
-import {SafeAreaProvider} from 'react-native-safe-area-context';
+import 'react-native-gesture-handler';
+import './config/reactotron';
 
-import SignIn from './screens/signin';
-import {ThemeProvider} from 'styled-components/native';
-import {theme} from './styles/theme';
+import React from 'react';
+import { Provider as PaperProvider } from 'react-native-paper';
+import { StatusBar } from 'react-native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+
+import { ThemeProvider } from 'styled-components/native';
+import { theme } from './styles/theme';
+import Routes from './routes';
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <SafeAreaProvider style={{flex: 1}}>
+      <SafeAreaProvider style={{ flex: 1 }}>
         <PaperProvider>
           <StatusBar
             barStyle="light-content"
             backgroundColor={theme.colors.primary}
           />
+          <Routes />
         </PaperProvider>
-        <SignIn />
       </SafeAreaProvider>
     </ThemeProvider>
   );

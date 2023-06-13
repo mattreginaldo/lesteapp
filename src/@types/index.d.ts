@@ -10,9 +10,9 @@ declare module '*.gif';
 // declare module 'react-native-tab-view';
 // declare module 'react-native-scroll-to-element';
 // declare module '@veriff/react-native-sdk';
-// declare module '*.svg' {
-//   import { SvgProps } from 'react-native-svg';
+declare module '*.svg' {
+  import { SvgProps } from 'react-native-svg';
 
-//   const content: React.FC<SvgProps>;
-//   export default content;
-// }
+  const content: React.FC<SvgProps>;
+  export default content;
+}
