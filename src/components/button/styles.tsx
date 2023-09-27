@@ -15,6 +15,7 @@ const Primary = styled(ButtonRNPaper).attrs<ButtonProps & ButtonPropsRNPaper>({
 })`
   ${({ theme }) => css`
     border-radius: ${theme.responsive.value(8)}px;
+    width: 100%;
   `}
 `;
 

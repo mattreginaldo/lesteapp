@@ -4,8 +4,10 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { Platform } from 'react-native';
 
 import SignIn from '~/screens/signin';
+import SignUpWelcome from '~/screens/signup/welcome';
+import { RootStackParamList } from '~/@types/routes';
 
-const Stack = createStackNavigator();
+const Stack = createStackNavigator<RootStackParamList>();
 
 // const MyAccountsContextNavigator = () => {
 //   return (
@@ -48,7 +50,8 @@ export default function AuthenticationRoutes() {
       }}
     >
       {/* <Stack.Screen name="update" component={Update} /> */}
-      <Stack.Screen name="signin" component={SignIn} />
+      <Stack.Screen name="Signin" component={SignIn} />
+      <Stack.Screen name="SignupWelcome" component={SignUpWelcome} />
       {/* <Stack.Screen
         name="welcome"
         component={Welcome}

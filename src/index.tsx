@@ -6,6 +6,7 @@
  */
 
 import 'react-native-gesture-handler';
+import './config/i18n/i18n.config';
 import './config/reactotron';
 
 import React from 'react';

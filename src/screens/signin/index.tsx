@@ -4,6 +4,10 @@ import { TextInput } from 'react-native-paper';
 import { useTheme } from 'styled-components/native';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { useNavigation } from '@react-navigation/native';
+
+/** Types */
+import { ISignInData } from '~/@types/signin';
 
 /** Components */
 import InputCheckbox from '~/components/form/inputCheckbox';
@@ -22,7 +26,8 @@ const UserSinginSchema = Yup.object().shape({
   rememberMe: Yup.boolean(),
 });
 
-function SignIn() {
+const SignIn = () => {
+  const { navigate } = useNavigation();
   const [isVisiblePwd, setIsVisiblePwd] = useState(false);
 
   const theme = useTheme();
@@ -34,8 +39,8 @@ function SignIn() {
       rememberMe: false,
     },
     initialErrors: {
-      email: '-',
-      password: '-',
+      email: '',
+      password: '',
       rememberMe: '',
     },
     validationSchema: UserSinginSchema,
@@ -44,7 +49,7 @@ function SignIn() {
     },
   });
 
-  const requestSignin = (values) => {
+  const requestSignin = (values: ISignInData) => {
     console.log('values', values);
   };
 
@@ -63,7 +68,7 @@ function SignIn() {
               onBlur={formik.handleBlur('email')}
               value={formik.values.email}
               autoCapitalize="none"
-              error={formik.errors.email}
+              errorMessage={formik.errors.email}
             />
           </View>
 
@@ -82,7 +87,7 @@ function SignIn() {
                   onPress={() => setIsVisiblePwd(!isVisiblePwd)}
                 />
               }
-              error={formik.errors.password}
+              errorMessage={formik.errors.password}
             />
           </View>
 
@@ -119,7 +124,7 @@ function SignIn() {
             <Button
               style={{ marginTop: 10 }}
               type="terciary"
-              onPress={() => console.log('ajsndajklsndjjnasdjln')}
+              onPress={() => navigate('SignupWelcome')}
             >
               Sign Up
             </Button>
@@ -128,6 +133,6 @@ function SignIn() {
       </S.Container>
     </S.ContainerScroll>
   );
-}
+};
 
 export default SignIn;

@@ -62,7 +62,7 @@ const TextErrorInput = styled.Text`
 interface InputProps {
   label: string;
   value?: string;
-  error?: string;
+  errorMessage?: string;
   setValue: (text: string) => void;
 }
 
@@ -70,7 +70,7 @@ const Input = ({
   label,
   value,
   setValue,
-  error,
+  errorMessage,
   ...res
 }: InputProps & TextInputProps) => {
   const theme = useTheme();
@@ -81,7 +81,7 @@ const Input = ({
         label={<InputTextStyle>{label}</InputTextStyle>}
         value={value}
         onChangeText={setValue}
-        error={!!error}
+        error={!!errorMessage}
         style={{ height: 80, backgroundColor: 'transparent' }}
         underlineColor={theme.colors.white}
         activeUnderlineColor={theme.colors.white}
@@ -95,7 +95,7 @@ const Input = ({
         {...res}
       />
 
-      {error ? (
+      {errorMessage ? (
         <View
           style={{
             flexDirection: 'row',
@@ -104,7 +104,7 @@ const Input = ({
           }}
         >
           <AlertIcon marginRight={5} width={15} height={15} marginTop={0} />
-          <TextErrorInput>{error}</TextErrorInput>
+          <TextErrorInput>{errorMessage}</TextErrorInput>
         </View>
       ) : (
         <TextErrorInput />

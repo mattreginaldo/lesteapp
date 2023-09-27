@@ -1,6 +1,6 @@
-import {ITheme} from '~/styles/theme';
+import { ITheme } from '~/styles/theme';
 
 declare module 'styled-components' {
-  // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  export interface DefaultTheme extends ITheme {}
+
+  export interface DefaultTheme extends ITheme { }
 }
